@@ -58,17 +58,52 @@
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col-lg-8">
                 <pre class="line-numbers"><code class="language-javascript">
-                    //Call Hello World
-                    function HelloWorld(){
-                    alert("Hello World");
+                    //Get the string from the user input
+                    //Control Function
+                    function getInput() {
+                        
+                        document.getElementById("alert").classList.add("invisible");
+                        
+                        let userString = document.getElementById("userString").value;
+                        let revString = reverseString(userString);
+                        displayReverse(revString);
+                    }
+
+                    //Reverse the string
+                    //Logic Function
+                    function reverseString(userString) {
+
+                        let revString = [];
+
+                        //Reverse a string using a for loop
+                        for (let index = (userString.length - 1); index >= 0; index--) {
+                            revString += userString[index];
+                            }
+
+                        return revString;
+                    }
+
+                    //Display the reversed string on the msg
+                    //View Function
+                    function displayReverse(revString) {
+
+                        //Write to the page
+                        document.getElementById("msg").innerHTML = `Your reversed string is: ${revString}`
+
+                        //Turn on the alert box
+                        document.getElementById("alert").classList.remove("invisible");
                     }
                 </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>The Code is constructed in one function</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                <h5>The Code is constructed in three functions.</h5>
+                <h5>getInput</h5>
+                <p>function getInput() houses the Control elements of the code; it takes the user's input from the form's input box and saves it into "userString". Next it calles reverseString(userString) which returns into revString. The final step is to call displayReverse(revString). This function also contains the code to turn the alert box "invisible" so that it resets with each subsequent run.</p>
+                <h5>reverseString</h5>
+                <p>function reverseString(userString) runs the userString array through a for loop starting at the last index of the array. Each loop uses the Addition Assignment (+=) to form the string in reverse one letter at a time. Index is decremented with each loop to step backwards through the string until index is less than 0. revString is returned up to the getInput() function.</p>
+                <h5>reverseString</h5>
+                <p>function displayReverse(revString) takes the revString variable and prints it to the "msg" box using a Template Literal. Once the msg is written it removes the "invisible" class from the "alert" box.</p>
             </div>
         </div>
     </div>

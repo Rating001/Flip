@@ -6,7 +6,7 @@ function getInput() {
     
     let userString = document.getElementById("userString").value;
     let revString = reverseString(userString);
-    displayString(revString);
+    displayReverse(revString);
 }
 
 //Reverse the string
@@ -28,5 +28,9 @@ function reverseString(userString) {
 //View Function
 function displayReverse(revString) {
 
-    
+    //Write to the page
+    document.getElementById("msg").innerHTML = `Your reversed string is: ${revString}`
+
+    //Turn on the alert box
+    document.getElementById("alert").classList.remove("invisible");
 }
